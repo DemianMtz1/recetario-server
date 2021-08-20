@@ -1,0 +1,6 @@
+applications: 
+- name: Recetario-app
+  random-route: true
+  memory: 128M
+  buildpack: nodejs_buildpack
+  command: node index.js
