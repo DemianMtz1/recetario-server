@@ -43,7 +43,7 @@ router.get('/:id', async (req, res) => {
     }
 })
 
-router.post('/', auth, validRole, async (req, res) => {
+router.post('/', auth, async (req, res) => {
     try {
         const newRecipe = req.body;
         const recipe = await recipesUsesCases.create(newRecipe);
@@ -63,7 +63,7 @@ router.post('/', auth, validRole, async (req, res) => {
     }
 })
 
-router.delete('/:id', auth, validRole, async (req, res) => {
+router.delete('/:id', auth, async (req, res) => {
     try {
         const { id } = req.params;
         const recipe = await recipesUsesCases.deleteById(id);
@@ -83,7 +83,7 @@ router.delete('/:id', auth, validRole, async (req, res) => {
     }
 })
 
-router.patch('/:id', auth, validRole, async (req, res) => {
+router.patch('/:id', auth, async (req, res) => {
     try {
         const { id } = req.params;
         const recipe = await recipesUsesCases.updateById(id, req.body);
